@@ -6,22 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
   <title>Vue To Do List</title>
 </head>
 <body>
 
-  <div id="todo-list">
-    <ol v-if="lista.length > 0" >
-      <li v-for="(item, index) in lista">{{item}} <span @click="deleteItem(index)" >X</span></li>
-    </ol>
+  <div class="wrapper">
 
-    <div class="">
-      <input type="text" placeholder="inserisci un nuovo elemento" v-model="newItem" @keyup.13="addItem">
-      <button @click="addItem" >Aggiungi</button>
+    <div id="todo-list">
+      <div class="title">
+        <h1>Todo List</h1>
+      </div>
+      <ol v-if="lista.length > 0" >
+        <li v-for="(item, index) in lista"><p>{{item}}</p> <button id="delete" @click="deleteItem(index)" >Delete</button></li>
+      </ol>
+
+      <div class="inserisci">
+        <input id="input-text" type="text" placeholder="type in" v-model="newItem" @keyup.13="addItem">
+        <button id="Add" @click="addItem">Add</button>
+      </div>
+
     </div>
-
-
   </div>
 
 
